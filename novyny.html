@@ -61,6 +61,7 @@ a{color:inherit}
 .nav{display:flex;gap:6px;flex-wrap:wrap}
 .nav a{color:var(--on-navy-muted);text-decoration:none;font-size:.9rem;font-weight:500;padding:8px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.14)}
 .nav a:hover{color:var(--on-navy);border-color:rgba(255,255,255,.4)}
+.nav a[aria-current="page"]{color:var(--on-navy);border-color:rgba(255,255,255,.5)}
 .hero-body{position:relative;padding-block:36px 40px;display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:40px;align-items:end}
 .live{display:inline-flex;align-items:center;gap:8px;font-size:.8rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--on-navy-muted);margin:0 0 14px}
 .live i{width:8px;height:8px;border-radius:50%;background:var(--coral);box-shadow:0 0 0 0 rgba(249,97,100,.6)}
@@ -213,10 +214,11 @@ mark{background:var(--mark);color:inherit;border-radius:2px;padding:0 1px}
     <div class="top">
       <a class="brand" href="./" aria-label="Портал Рад ВПО, головна"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 600 195"> <path fill="currentColor" d="M184.1,50.7l-5.7,34.9h-33.3l-4.4,25.4h33.6l-5.4,34.9h-33.9l-7.9,47.5h-36.1l7.9-47.5h-29.2l-7.9,47.5H25.7l7.9-47.5H0l5.7-34.9h33.6l4.4-25.4H9.8l5.7-34.9h33.9L57.4,3.1h36.1l-7.9,47.5h29.2l7.9-47.5h36.1l-7.9,47.5h33.3-.1ZM75.4,110.9h29.2l4.4-25.4h-29.2l-4.4,25.4h0Z"/> <path fill="currentColor" d="M252.4,40.6c7.2,4,10.8,10.3,10.8,18.7s-2.8,13.2-8.3,17.6c-5.6,4.4-12.6,6.6-21.2,6.6-15,0-25.1-6.3-30.3-18.9l15.7-9c2.4,7.2,7.3,10.8,14.6,10.8s11.3-2.8,11.3-8.4-3.8-8.4-11.4-8.4h-10.2v-16.2h7.9c7.2,0,10.8-2.6,10.8-7.9s-3.1-7.9-9.2-7.9-10.2,3-12.7,9.1l-15.6-9C210.4,6.1,219.8.4,232.9.4s14.6,2.2,19.7,6.5c5.2,4.3,7.8,10,7.8,17.1s-2.7,12.4-8,16.5h0Z"/> <path fill="currentColor" d="M313.2,30.2v-5.4h17.1v57.1h-17.1v-5.4c-4,4.6-9.6,7-17,7s-14-2.9-19.3-8.7c-5.3-5.8-8-12.9-8-21.5s2.7-15.6,8-21.3c5.4-5.9,11.8-8.8,19.3-8.8s13,2.3,17,7h0ZM286.1,53.3c0,4.3,1.3,7.6,3.8,10.2,2.5,2.5,5.8,3.8,9.8,3.8s7.3-1.3,9.8-3.8c2.5-2.5,3.8-5.9,3.8-10.2s-1.3-7.6-3.8-10.2-5.8-3.8-9.8-3.8-7.3,1.3-9.8,3.8-3.8,5.9-3.8,10.2Z"/> <path fill="currentColor" d="M343.5,2h30.2c7.9,0,14.5,2.7,19.9,8,5.4,5.4,8.1,11.9,8.1,19.4s-2.7,14-8.1,19.4c-5.3,5.3-11.9,8-19.9,8h-12v25.1h-18.3V2h0ZM361.7,39.7h12c2.8,0,5.1-1,7-3,1.8-2,2.7-4.4,2.7-7.3s-.9-5.3-2.7-7.3c-1.8-2-4.1-3-7-3h-12v20.5h0Z"/> <path fill="currentColor" d="M448.2,30.2v-5.4h17.1v57.1h-17.1v-5.4c-4,4.6-9.6,7-17,7s-14-2.9-19.3-8.7c-5.3-5.8-8-12.9-8-21.5s2.7-15.6,8-21.3c5.4-5.9,11.8-8.8,19.3-8.8s13,2.3,17,7h0ZM421.1,53.3c0,4.3,1.3,7.6,3.8,10.2,2.5,2.5,5.8,3.8,9.8,3.8s7.3-1.3,9.8-3.8c2.5-2.5,3.8-5.9,3.8-10.2s-1.3-7.6-3.8-10.2c-2.5-2.5-5.8-3.8-9.8-3.8s-7.3,1.3-9.8,3.8-3.8,5.9-3.8,10.2Z"/> <path fill="currentColor" d="M530.4,24.8v41.1h7.4v31.3h-16.7v-15.3h-31.7v15.3h-16.7v-31.3h7.1c3-4.6,4.6-11.2,4.6-19.7v-21.3h46ZM497.7,65.9h16v-25.8h-12.7v6.1c0,7.8-1.1,14.4-3.3,19.7Z"/> <path fill="currentColor" d="M563,53.3l24.4-28.5h12.6v57.1h-16.7v-28.5l-24.4,28.5h-12.6V24.8h16.7v28.5Z"/> <path fill="currentColor" d="M252.8,151.6c6.5,4.3,9.8,10.3,9.8,18s-2.5,12.6-7.4,16.9-11.1,6.5-18.4,6.5h-33.5v-79.9h31.3c7.1,0,13,2.1,17.9,6.4,4.9,4.2,7.3,9.7,7.3,16.4s-2.3,11.7-7,15.6h0ZM234.6,130.2h-13v14.1h13c2.1,0,3.7-.7,5-2s1.9-3,1.9-5.1-.6-3.7-1.9-5.1c-1.3-1.3-3-2-5-2h0ZM221.6,175.9h15.3c2.3,0,4.1-.7,5.5-2.1,1.4-1.4,2.1-3.3,2.1-5.5s-.7-4.1-2.1-5.5-3.2-2.1-5.5-2.1h-15.3v15.3h0Z"/> <path fill="currentColor" d="M271.8,113.1h60.5v79.9h-18.3v-62.3h-24v62.3h-18.3v-79.9h0Z"/> <path fill="currentColor" d="M413.5,182.6c-8.1,8-17.9,12-29.4,12s-21.4-4-29.4-12c-8.1-8-12.1-17.8-12.1-29.6s4-21.6,12.1-29.6c8.1-8,17.9-12,29.4-12s21.4,4,29.4,12c8.1,8,12.1,17.8,12.1,29.6s-4,21.6-12.1,29.6ZM360.8,153.1c0,7,2.2,12.7,6.6,17.1,4.4,4.4,10,6.6,16.7,6.6s12.1-2.2,16.5-6.6c4.5-4.5,6.7-10.2,6.7-17.1s-2.2-12.6-6.7-17.1-9.9-6.6-16.5-6.6-12.2,2.2-16.7,6.6c-4.4,4.4-6.6,10.1-6.6,17.1Z"/> </svg></a>
       <nav class="nav" aria-label="Посилання">
-        <a href="./">← Головна</a>
-        <a href="https://radyvpo.org.ua/" target="_blank" rel="noopener">Портал Рад ВПО ↗</a>
+        <a href="./">Головна</a>
+        <a href="novyny.html" aria-current="page">Новини</a>
+        <a href="materialy.html">Корисні матеріали</a>
+        <a href="porady.html">Поради експертів</a>
         <a href="https://radyvpo.org.ua/rady-vpo/" target="_blank" rel="noopener">Мапа рад ↗</a>
-        <a href="https://sss-ua.org/" target="_blank" rel="noopener">БФ «ССС» ↗</a>
       </nav>
     </div>
     <div class="hero-body">
