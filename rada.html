@@ -4,14 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Рада ВПО — Портал Рад ВПО</title>
-<meta name="description" content="Сторінка Ради ВПО: загальна інформація, контакти, склад та рекомендовані публікації.">
+<meta name="description" content="Сторінка Ради ВПО: люди, історія за роками, новини, матеріали та контакти.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&display=swap">
 <link rel="stylesheet" href="rady.css">
 </head>
 <body>
-<header class="page-head rada">
+<header class="page-head rl-head">
   <svg class="bgmark" viewBox="0 0 190 195" aria-hidden="true"><path d="M184.1,50.7l-5.7,34.9h-33.3l-4.4,25.4h33.6l-5.4,34.9h-33.9l-7.9,47.5h-36.1l7.9-47.5h-29.2l-7.9,47.5H25.7l7.9-47.5H0l5.7-34.9h33.6l4.4-25.4H9.8l5.7-34.9h33.9L57.4,3.1h36.1l-7.9,47.5h29.2l7.9-47.5h36.1l-7.9,47.5h33.3-.1ZM75.4,110.9h29.2l4.4-25.4h-29.2l-4.4,25.4h0Z" fill="currentColor"></path></svg>
   <div class="wrap">
     <div class="top">
@@ -23,50 +23,73 @@
         <a href="porady.html">Поради експертів</a>
       </nav>
     </div>
-    <div class="head-body">
-      <a class="back" id="back" href="mapa.html">← Назад</a>
-      <p class="eyebrow" id="r-eyebrow"></p>
-      <h1 id="r-title">Рада ВПО</h1>
+    <div class="rl-hero">
+      <div class="rl-hero-text">
+        <a class="back" id="back" href="mapa.html">← Назад</a>
+        <p class="eyebrow" id="r-eyebrow"></p>
+        <h1 id="r-title">Рада ВПО</h1>
+        <p class="lead" id="r-lead"></p>
+        <div class="rl-actions" id="r-actions"></div>
+      </div>
+      <a class="rl-map" id="r-map" href="mapa.html" aria-label="Переглянути область на мапі Рад ВПО"></a>
     </div>
   </div>
 </header>
 
 <main id="main">
-  <div class="wrap rada-layout" id="layout">
-    <div>
-      <section class="panel" aria-labelledby="h-info">
-        <h2 id="h-info">Загальна інформація про Раду</h2>
-        <dl class="facts" id="facts"></dl>
-      </section>
-      <section class="panel" aria-labelledby="h-comp">
-        <h2 id="h-comp">Склад Ради ВПО</h2>
-        <div id="comp"></div>
-      </section>
-    </div>
-    <aside>
-      <section class="panel" aria-labelledby="h-cont">
-        <h2 id="h-cont">Контактна інформація</h2>
+  <div class="wrap rl-strip-wrap" id="strip-wrap"><ul class="rl-strip" id="strip"></ul></div>
+
+  <nav class="rl-nav" id="rl-nav" aria-label="Розділи сторінки ради"><div class="wrap"><ul id="rl-nav-list"></ul></div></nav>
+
+  <section class="wrap rl-sec" id="about" aria-labelledby="h-about">
+    <div class="rl-title"><p class="rl-kicker">Про раду</p><h2 id="h-about">Загальна інформація про Раду</h2></div>
+    <div class="rl-about">
+      <dl class="facts panel" id="facts"></dl>
+      <section class="panel rl-contact" aria-labelledby="h-cont">
+        <h3 id="h-cont">Контактна інформація</h3>
         <div id="contact"></div>
         <p class="sr-only" id="copy-status" role="status" aria-live="polite"></p>
       </section>
-    </aside>
-  </div>
+    </div>
+  </section>
+
+  <section class="rl-band" id="people" aria-labelledby="h-people">
+    <div class="wrap">
+      <div class="rl-title on-navy"><p class="rl-kicker">Люди</p><h2 id="h-people">Склад Ради ВПО</h2></div>
+      <div id="comp"></div>
+    </div>
+  </section>
+
+  <section class="wrap rl-sec" id="years" aria-labelledby="h-years">
+    <div class="rl-title"><p class="rl-kicker">Історія</p><h2 id="h-years">Рада рік за роком</h2></div>
+    <ol class="tl" id="timeline"></ol>
+  </section>
+
+  <section class="wrap rl-sec" id="news" aria-labelledby="h-news">
+    <div class="rl-title row"><div><p class="rl-kicker">Новини</p><h2 id="h-news">Рекомендовані публікації</h2></div><a class="link" id="all-pubs" href="novyny.html#rady">Всі публікації →</a></div>
+    <div class="rl-news" id="news-list"></div>
+  </section>
+
+  <section class="wrap rl-sec" id="materials" aria-labelledby="h-mats">
+    <div class="rl-title row"><div><p class="rl-kicker">Матеріали</p><h2 id="h-mats">Матеріали для роботи ради</h2></div><a class="link" href="materialy.html">Усі матеріали →</a></div>
+    <div class="rl-mats" id="mats"></div>
+  </section>
+
+  <section class="wrap rl-sec" id="near" aria-labelledby="h-near">
+    <div class="rl-title row"><div><p class="rl-kicker">Мережа</p><h2 id="h-near">Інші ради поруч</h2></div><a class="link" id="near-all" href="mapa.html">Усі ради області →</a></div>
+    <ul class="rl-near" id="near-list"></ul>
+  </section>
+
+  <section class="wrap rl-sec" aria-label="Оновити сторінку ради">
+    <div class="cta-row">
+      <p>Це сторінка вашої ради?<small>Додайте склад, оновіть контакти або надішліть новину, і сторінка стане живою.</small></p>
+      <div class="acts"><a class="btn" href="https://ee-eu.kobotoolbox.org/x/Hy017RXj" target="_blank" rel="noopener">Оновити інформацію<span class="sr-only"> (відкриється в новій вкладці)</span> ↗</a><a class="plain" href="mailto:rady-vpo@sss-ua.org">Надіслати новину</a></div>
+    </div>
+  </section>
 
   <div class="wrap notfound" id="notfound" hidden>
     <div class="empty"><strong>Сторінку ради не знайдено</strong>Перейдіть на мапу, щоб знайти раду за областю або громадою.<br><br><a class="btn" href="mapa.html">До мапи Рад ВПО</a></div>
   </div>
-
-  <section class="wrap block" id="pubs-sec" aria-labelledby="h-pubs">
-    <div class="sec-head"><h2 class="sec-title" id="h-pubs">Рекомендовані публікації</h2><a class="link" id="all-pubs" href="novyny.html#rady">Всі публікації →</a></div>
-    <ul class="pubs" id="pubs"></ul>
-  </section>
-
-  <section class="wrap block" aria-label="Надіслати новину">
-    <div class="cta-row">
-      <p>Надсилайте свої новини або оголошення<small>Вкажіть ім’я, контакт для зв’язку, раду ВПО, назву та повний опис матеріалу.</small></p>
-      <div class="acts"><a class="btn" href="mailto:rady-vpo@sss-ua.org">Написати редакції</a></div>
-    </div>
-  </section>
 </main>
 
 <footer class="foot">
@@ -88,6 +111,7 @@
 </footer>
 
 <script src="rady-data.js"></script>
+<script src="rady-map.js"></script>
 <script src="a11y.js" defer></script>
 <script src="rada-app.js"></script>
 </body>
