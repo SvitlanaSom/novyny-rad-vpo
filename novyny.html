@@ -204,7 +204,7 @@ mark{background:var(--mark);color:inherit;border-radius:2px;padding:0 1px}
 }
 </style>
 <style>body{margin:0}[hidden]{display:none!important}img{max-width:100%}</style>
-</head>
+<script src="search.js"></script></head>
 <body>
 
 <header class="hero">
@@ -311,7 +311,7 @@ mark{background:var(--mark);color:inherit;border-radius:2px;padding:0 1px}
     `<div class="stat"><b>${recent}</b><span>за останні 30 днів</span></div>`+
     `<div class="stat"><b>${regionsAll.length}</b><span>областей у новинах</span></div>`;
 
-  regionsAll.sort((a,b)=>a.localeCompare(b,"uk")).forEach(r=>regionEl.add(new Option(r+" обл.",r)));
+  regionsAll.sort((a,b)=>a.localeCompare(b,"uk")).forEach(r=>regionEl.add(new Option(r+" обл.",r)));(()=>{const r=new URLSearchParams(location.search).get("region");if(r&&regionsAll.includes(r)){state.region=r;regionEl.value=r;}})();
   [...new Set(items.map(i=>i.d.slice(0,4)))].sort().reverse().forEach(y=>yearEl.add(new Option(y,y)));
 
   const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -325,7 +325,7 @@ mark{background:var(--mark);color:inherit;border-radius:2px;padding:0 1px}
 
   function base(ignoreRub){
     const ts=terms();
-    return items.filter(it=>(ignoreRub||state.rub==="all"||it.k.includes(state.rub))&&(!state.region||it.r.includes(state.region))&&(!state.year||it.d.startsWith(state.year))&&ts.every(t=>it.hay.includes(t)));
+    return items.filter(it=>(ignoreRub||state.rub==="all"||it.k.includes(state.rub))&&(!state.region||it.r.includes(state.region))&&(!state.year||it.d.startsWith(state.year))&&PortalSearch.match(it.hay,state.q));
   }
 
   function media(it){
@@ -405,5 +405,5 @@ mark{background:var(--mark);color:inherit;border-radius:2px;padding:0 1px}
   render();
 })();
 </script>
-</body>
+<script src="a11y.js" defer></script></body>
 </html>

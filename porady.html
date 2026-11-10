@@ -130,7 +130,7 @@ mark{background:var(--mark);color:inherit;border-radius:2px;padding:0 1px}
 }
 </style>
 <style>body{margin:0}[hidden]{display:none!important}img{max-width:100%}</style>
-</head>
+<script src="search.js"></script></head>
 <body>
 
 <header class="hero">
@@ -226,7 +226,7 @@ mark{background:var(--mark);color:inherit;border-radius:2px;padding:0 1px}
 
   const terms=()=>norm(state.q).trim().split(" ").filter(Boolean);
   function hl(text,ts){let out=esc(text);if(!ts.length)return out;const re=new RegExp("("+ts.map(t=>esc(t).replace(/[.*+?^${}()|[\]\\]/g,"\\$&").replace(/'/g,"['’ʼ`]")).join("|")+")","gi");return out.replace(re,"<mark>$1</mark>");}
-  const base=(ignoreG)=>{const ts=terms();return items.filter(it=>(ignoreG||!state.g||it.g===state.g)&&ts.every(t=>it.hay.includes(t)));};
+  const base=(ignoreG)=>{const ts=terms();return items.filter(it=>(ignoreG||!state.g||it.g===state.g)&&PortalSearch.match(it.hay,state.q));};
 
   function render(){
     const pool=base(true);
@@ -250,5 +250,5 @@ mark{background:var(--mark);color:inherit;border-radius:2px;padding:0 1px}
   render();
 })();
 </script>
-</body>
+<script src="a11y.js" defer></script></body>
 </html>
